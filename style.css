@@ -1,0 +1,26 @@
+header {
+    background-color: rgb(54, 142, 172);
+    text-align: center;
+}
+
+h1 {
+    padding: 5px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    margin-left: -2rem;
+}
+
+.card {
+    padding: 1rem;
+    background-color: lightblue;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px gray;
+    margin: 1rem;
+}

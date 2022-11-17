@@ -1,5 +1,50 @@
 const inquirer = require('inquirer');
-const menu = require('inquirer-menu');
+const { writeFile } = require('fs').promises;
+
+const generateHTML = (answers) =>
+  `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Team Profile</title>
+  </head>
+  <body>
+      <header>
+          <h1>My Team</h1>
+      </header>
+      <main>
+          <section class="card">
+              <h2>Manager</h2>
+              <ul>
+                  <li>Name: ${answers.managerName}</li>
+                  <li>ID: ${answers.managerId}</li>
+                  <li>Email: ${answers.managerEmail}</li>
+                  <li>Office Number: ${answers.managerOfficeNumber}</li>
+              </ul>
+          </section>
+          <section class="card">
+              <h2>Engineer</h2>
+              <ul>
+                  <li>Name: ${answers.engineerName}</li>
+                  <li>ID: ${answers.engineerId}</li>
+                  <li>Email: ${answers.engineerEmail}</li>
+                  <li>GitHub: ${answers.engineerGithub}</li>
+              </ul>
+          </section>
+          <section class="card">
+              <h2>Intern</h2>
+              <ul>
+                  <li>Name: ${answers.internName}</li>
+                  <li>ID: ${answers.internId}</li>
+                  <li>Email: ${answers.internEmail}</li>
+                  <li>School: ${answers.internSchool}</li>
+              </ul>
+          </section>
+      </main>
+  </body>
+  </html>`;
 
 inquirer
   .prompt([
@@ -41,7 +86,7 @@ inquirer
     {
         type: 'input',
         message: "What is the the engineers' GitHub username?",
-        name: 'engineerGitHub'
+        name: 'engineerGithub'
     },
     {
         type: 'input',
@@ -64,6 +109,5 @@ inquirer
         name: 'internSchool'
     }
   ])
-  .then((response) => 
-    console.log(response)
-  );
+  .then((answers) => writeFile('index.html', generateHTML(answers))
+  .catch((err) => console.error(err)));
