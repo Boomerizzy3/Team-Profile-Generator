@@ -20,7 +20,7 @@ const generateHTML = (answers) =>
               <ul>
                   <li>Name: ${answers.managerName}</li>
                   <li>ID: ${answers.managerId}</li>
-                  <li>Email: ${answers.managerEmail}</li>
+                  <li>Email: <a href="mailto: ${answers.managerEmail}">${answers.managerEmail}</a></li>
                   <li>Office Number: ${answers.managerOfficeNumber}</li>
               </ul>
           </section>
@@ -29,8 +29,8 @@ const generateHTML = (answers) =>
               <ul>
                   <li>Name: ${answers.engineerName}</li>
                   <li>ID: ${answers.engineerId}</li>
-                  <li>Email: ${answers.engineerEmail}</li>
-                  <li>GitHub: ${answers.engineerGithub}</li>
+                  <li>Email: <a href="mailto: ${answers.engineerEmail}">${answers.engineerEmail}</a></li>
+                  <li>GitHub: <a href="${answers.engineerGithub}">${answers.engineerGithub}</a></li>
               </ul>
           </section>
           <section class="card">
@@ -38,7 +38,7 @@ const generateHTML = (answers) =>
               <ul>
                   <li>Name: ${answers.internName}</li>
                   <li>ID: ${answers.internId}</li>
-                  <li>Email: ${answers.internEmail}</li>
+                  <li>Email: <a href="mailto: ${answers.internEmail}">${answers.internEmail}</a></li>
                   <li>School: ${answers.internSchool}</li>
               </ul>
           </section>
